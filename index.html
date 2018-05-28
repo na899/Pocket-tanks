@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Pocket tanks on canvas
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	  <div id="startWindow">
+			<div class="modalBox">
+				<h1>Rules</h1>
+				<p>It's a two player game.Each player will get 5 chances each. The aim is to hit the tank of the opposte player. The player name who's turn is up will be highlited. First player A is up! GOOD LUCK!!</p>
+				<input type="button" value="Start Game" id="startButton" onclick="start()">
+			</div>
+		</div>
+		<div id="gameOver">
+			<div class="modalBox">
+				<p>GAME OVER!</p>
+				<h1 id="win"></h1>
+				
+			</div>
+		</div>
+
+	  <div id="title"><h2>Pocket Tanks</h2></div>
+	  <fieldset id="controls">
+
+	       <span id="A"><b>Player A</b> </span>	 
+	       <span class="blank">_________</span>
+           <input type="button" value="<<" id="leftA" onclick="leftA()" >
+	       <input type="number" value="45" min="0" max="90" id="angleA">
+	       <input type="button" value=">>" id="rightA" onclick="rightA()">
+	       <span class="blank">_________</span>
+	       <span>   SCORE:</span>
+	       <span id="scoreA">0</span>
+	  	   <span class="blank">__________________________</span>
+	       <input type="submit" value="FIRE" id="fire" onclick="fire()">
+	       <span class="blank">__________________________</span>
+	       <span>   SCORE:</span>
+	       <span id="scoreB">0</span>
+	       <span class="blank">_________</span>
+	       <input type="button" value="<<" id="leftB"onclick="leftB()" >
+	       <input type="number" value="45" min ="0" max="90" id="angleB">
+	       <input type="button" value=">>" id="rightB" onclick="rightB()">
+	       <span class="blank">_________</span>
+	       <span id="B"> <b> Player B</b> </span>
+	  </fieldset>
+	 
+	<canvas id="c" width="1300" height="550"></canvas>
+	<script type="text/javascript" src="text.js">
+
+
+		
+		
+	</script>
+
+</body>
+</html>

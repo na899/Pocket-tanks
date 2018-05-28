@@ -1,0 +1,80 @@
+#title{
+	text-align: center;
+	
+}
+#controls{
+	margin: auto;
+	text-align: center;
+
+}
+body{
+	background-color: black;
+	color: white;
+	font-family: system-ui;
+}
+#scoreA{
+	color: yellow;
+	font-weight: bold;
+
+}
+#scoreB{
+	color: yellow;
+	font-weight: bold;
+
+}
+.blank{
+	color: black;
+}
+#startWindow{
+	
+  	height: 100%;
+  	width: 100%;
+  	top: 0;
+  	left: 0;
+	position: absolute;
+	font-family: Lucida, sans-serif;
+	padding-top: 100px;
+}
+#gameOver{
+	height: 100%;
+  	width: 100%;
+  	top: 0;
+  	left: 0;
+	position: absolute;
+	font-family: Lucida, sans-serif;
+	padding-top: 100px;
+	display: none;
+
+
+}
+
+
+.modalBox {
+	margin: 0 auto;
+	width: 800px;
+	background: white;
+	text-align: center;
+	border: 2px solid;
+	border-radius: 1vw;
+	padding: 2vw;
+	color: grey;
+}
+
+.modalBox h1{
+	font-size: 35px;
+	text-align: center;
+	font-weight: 100;
+	color:black;
+}
+
+.modalBox p {
+	font-size: 18px;
+	text-align: center;
+	font-weight: 100;
+	padding: 20px 0;
+}
+
+
+#A{
+	color:blue;
+}
