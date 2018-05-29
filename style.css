@@ -1,4 +1,5 @@
-#title{
+#
+title{
 	text-align: center;
 	
 }
@@ -34,6 +35,7 @@ body{
 	position: absolute;
 	font-family: Lucida, sans-serif;
 	padding-top: 100px;
+	
 }
 #gameOver{
 	height: 100%;

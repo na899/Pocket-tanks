@@ -3,7 +3,7 @@ var ctx=c.getContext("2d");
 var time=0;
 var xA,xB,yA,yB,velocityx,velocityy;
 ctx.translate(50,50);
-//var r=Math.random()*5;//r stores a random no.
+var r=Math.random()*5;//r stores a random no.
 var a=Math.random()*50+25;   //start x-postion of tank a
 var b=Math.random()*50+1050; //start x-postion of tank b
 xA=a+25;//bullet start x-postion from tank A
@@ -20,11 +20,12 @@ var counter=0;
 
 var x;
 var y;
-var columnCount=70;
+var columnCount=70+r;
 var height=10;
 var width=20;
 var scoreA=0;
 var scoreB=0;
+var timeOut;
 
 //function to close the start window
 function start(){         
@@ -40,22 +41,33 @@ function  collisionMountain() {
             if(b.status == 1) {
               
               if(turn==1)
-              {
+              {  
                   if(xA > b.x && xA < b.x+3*width && yA > b.y && yA < b.y+2*height) {
                    
                        b.status = 0;
                        clearInterval(interval);
                        drawstones();
                        drawTanks();
+                       document.getElementById("fire").disabled=false;
+                       document.getElementById("A").style.color="white";
+                       document.getElementById("B").style.color="blue";
+                       clearTimeout(timeOut);
+         
                   }
               }
               else if(turn==0)
                    if(xB > b.x && xB < b.x+3*width && yB > b.y && yB < b.y+2*height) {
                     
+                    
                        b.status = 0;
                        clearInterval(interval);
                        drawstones();
                        drawTanks();
+                       document.getElementById("fire").disabled=false;
+                       document.getElementById("B").style.color="white";
+                      document.getElementById("A").style.color="blue";
+                      clearTimeout(timeOut);
+
                 }
             
             }
@@ -106,14 +118,14 @@ for(var i=0; i<columnCount; i++) {
 function drawstones() {
     ctx.fillStyle="rgba(135,206,245,1)";
     ctx.fillRect(5,5,1250,500);
-    for(var i=0,X=675,Y=120,j; i<columnCount; i++,X=600-(j*10.5)/2,Y+=5.5) {
+    for(var i=0,X=675+3*r,Y=120-2*r,j; i<columnCount; i++,X=600-(j*10.5)/2,Y+=5.5) {
         for( j=0; j<i; j++,X+=10.5) {
 
             if(stones[i][j].status==1){
                 stones[i][j].x =  X;
                 stones[i][j].y =  Y;
                 ctx.beginPath();
-                ctx.rect( X,  Y, width, height);
+                ctx.rect( X,  Y, width+r, height);
                 ctx.fillStyle="rgba(150,60,40,1)";
                 ctx.fill();
                 ctx.closePath();
@@ -180,8 +192,7 @@ function fire(){
     }
     if(counter<10){
         if(turn==0){ 
-            document.getElementById("A").style.color="white";
-            document.getElementById("B").style.color="blue";
+            
             clearInterval(interval);
             angleA=document.getElementById("angleA").value;
             xA=a+25;//bullet start x-postion from tank A
@@ -192,14 +203,19 @@ function fire(){
             console.log("heyA");
             setTimeout(projectileA);
             interval=setInterval(projectileA,100); 
+            document.getElementById("fire").disabled=true;
+         timeOut=setTimeout(function(){
+                document.getElementById("A").style.color="white";
+                document.getElementById("B").style.color="blue";
+                document.getElementById("fire").disabled = false;
+     }, 10000);
     
             turn=1;
 
 
         }
     else{
-        document.getElementById("B").style.color="white";
-        document.getElementById("A").style.color="blue";
+      
         clearInterval(interval);
         angleB=document.getElementById("angleB").value;
         xB=b+25;//bullet start x-postion from tank B
@@ -211,6 +227,12 @@ function fire(){
 
         setTimeout(projectileB);
         interval= setInterval(projectileB,100); 
+        document.getElementById("fire").disabled=true;
+         timeOut=setTimeout(function(){
+                document.getElementById("B").style.color="white";
+                document.getElementById("A").style.color="blue";
+       document.getElementById("fire").disabled = false;
+     }, 9000);
         turn=0;
         }
     counter++;
